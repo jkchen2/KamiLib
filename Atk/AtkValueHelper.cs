@@ -13,34 +13,34 @@ public static class AtkValueHelper
         switch (value.Type)
         {
             case ValueType.Int:
-                PluginLog.Debug($"[{index:D3}] [{"int", 7}]: {value.Int}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"int", 7}]: {value.Int}");
                 break;
             case ValueType.Bool:
-                PluginLog.Debug($"[{index:D3}] [{"bool", 7}]: {(value.Byte != 0 ? "true" : "false")}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"bool", 7}]: {(value.Byte != 0 ? "true" : "false")}");
                 break;
             case ValueType.UInt:
-                PluginLog.Debug($"[{index:D3}] [{"uint", 7}]: {value.UInt}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"uint", 7}]: {value.UInt}");
                 break;
             case ValueType.Float:
-                PluginLog.Debug($"[{index:D3}] [{"float", 7}]: {value.Float}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"float", 7}]: {value.Float}");
                 break;
             case ValueType.String:
-                PluginLog.Debug($"[{index:D3}] [{"string", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"string", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
                 break;
             case ValueType.String8:
-                PluginLog.Debug($"[{index:D3}] [{"string8", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"string8", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
                 break;
             case ValueType.Vector:
-                PluginLog.Debug($"[{index:D3}] [{"vector", 7}]: No Representation Implemented");
+                Service.PluginLog.Debug($"[{index:D3}] [{"vector", 7}]: No Representation Implemented");
                 break;
             case ValueType.AllocatedString:
-                PluginLog.Debug($"[{index:D3}] [{"aString", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"aString", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
                 break;
             case ValueType.AllocatedVector:
-                PluginLog.Debug($"[{index:D3}] [{"aVector", 7}]: No Representation Implemented");
+                Service.PluginLog.Debug($"[{index:D3}] [{"aVector", 7}]: No Representation Implemented");
                 break;
             default:                        
-                PluginLog.Debug($"[{index:D3}] [{"unknown", 7}]: [{value.Type}]: {BitConverter.ToString(BitConverter.GetBytes((long)value.String)).Replace("-", " ")}");
+                Service.PluginLog.Debug($"[{index:D3}] [{"unknown", 7}]: [{value.Type}]: {BitConverter.ToString(BitConverter.GetBytes((long)value.String)).Replace("-", " ")}");
                 break;
         }
     }

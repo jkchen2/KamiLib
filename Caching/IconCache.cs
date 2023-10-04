@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Dalamud.Interface.Internal;
 using Dalamud.Logging;
 using Dalamud.Utility;
 using ImGuiScene;
@@ -9,7 +10,7 @@ namespace KamiLib.Caching;
 
 public class IconCache : IDisposable
 {
-    private readonly Dictionary<uint, TextureWrap?> iconTextures = new();
+    private readonly Dictionary<uint, IDalamudTextureWrap?> iconTextures = new();
 
     private const string IconFilePath = "ui/icon/{0:D3}000/{1:D6}_hr1.tex";
     
@@ -38,7 +39,7 @@ public class IconCache : IDisposable
             try
             {
                 var path = IconFilePath.Format(iconId / 1000, iconId);
-                var tex = Service.DataManager.GetImGuiTexture(path);
+                var tex = Service.TextureProvider.GetTextureFromGame(path);
 
                 if (tex is not null && tex.ImGuiHandle != nint.Zero) 
                 {
@@ -51,12 +52,12 @@ public class IconCache : IDisposable
             } 
             catch (Exception ex) 
             {
-                PluginLog.LogError($"Failed loading texture for icon {iconId} - {ex.Message}");
+                Service.PluginLog.Error($"Failed loading texture for icon {iconId} - {ex.Message}");
             }
         });
     }
     
-    public TextureWrap? GetIcon(uint iconId) 
+    public IDalamudTextureWrap? GetIcon(uint iconId) 
     {
         if (iconTextures.TryGetValue(iconId, out var value)) return value;
 

@@ -23,10 +23,10 @@ public static class Safety
                 var callingClass = trace.GetMethod()?.DeclaringType;
                 var callingName = trace.GetMethod()?.Name;
                 
-                PluginLog.Error($"Exception Source: {callingAssembly} :: {callingClass} :: {callingName}");
+                Service.PluginLog.Error($"Exception Source: {callingAssembly} :: {callingClass} :: {callingName}");
             }
 
-            PluginLog.Error(exception, message ?? "Caught Exception Safely");
+            Service.PluginLog.Error(exception, message ?? "Caught Exception Safely");
         }
     }
 }

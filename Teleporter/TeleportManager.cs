@@ -88,7 +88,7 @@ public class TeleportManager : IDisposable
         }
         else
         {
-            PluginLog.Error("User attempted to teleport to an aetheryte that is not unlocked");
+            Service.PluginLog.Error("User attempted to teleport to an aetheryte that is not unlocked");
             UserError(Strings.Teleport_NotUnlocked);
         }
     }
@@ -116,7 +116,7 @@ public class TeleportManager : IDisposable
         }
         catch (IpcNotReadyError)
         {
-            PluginLog.Error("Teleport IPC not found");
+            Service.PluginLog.Error("Teleport IPC not found");
             UserError(Strings.Teleport_InstallTeleporter);
         }
     }

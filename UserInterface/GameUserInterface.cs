@@ -1,5 +1,6 @@
 ﻿using System;
 using Dalamud.Game;
+using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 
@@ -31,7 +32,7 @@ public unsafe class GameUserInterface : IDisposable
         Service.Framework.Update -= FrameworkUpdate;
     }
 
-    private void FrameworkUpdate(Framework framework)
+    private void FrameworkUpdate(IFramework framework)
     {
         var partyList = (AtkUnitBase*) Service.GameGui.GetAddonByName("_PartyList");
         var todoList = (AtkUnitBase*) Service.GameGui.GetAddonByName("_ToDoList");

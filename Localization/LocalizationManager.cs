@@ -30,12 +30,12 @@ internal class LocalizationManager : IDisposable
     {
         try
         {
-            PluginLog.Information($"Loading Localization for {languageCode}");
+            Service.PluginLog.Information($"Loading Localization for {languageCode}");
             Strings.Culture = new CultureInfo(languageCode);
         }
         catch (Exception ex)
         {
-            PluginLog.Error(ex, "Unable to Load Localization");
+            Service.PluginLog.Error(ex, "Unable to Load Localization");
         }
     }
 }

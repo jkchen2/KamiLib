@@ -59,7 +59,7 @@ public class CommandManager : IDisposable
     {
         var commandData = Command.GetCommandData(command.ToLower(), arguments.ToLower());
         
-        PluginLog.Debug($"[{KamiCommon.PluginName}] Received Command: {commandData}");
+        Service.PluginLog.Debug($"[{KamiCommon.PluginName}] Received Command: {commandData}");
         Command.ProcessCommand(commandData, Commands);
     }
 }

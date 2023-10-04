@@ -13,7 +13,11 @@ public static unsafe class ImageNode
         var customNode = UISpace->Create<AtkImageNode>();
         customNode->AtkResNode.Type = NodeType.Image;
         customNode->AtkResNode.NodeID = nodeId;
-        customNode->AtkResNode.Flags = 8243;
+        customNode->AtkResNode.NodeFlags = NodeFlags.AnchorLeft |
+                                           NodeFlags.AnchorTop |
+                                           NodeFlags.Visible |
+                                           NodeFlags.Enabled |
+                                           NodeFlags.EmitsEvents;
         customNode->AtkResNode.DrawFlags = 0;
         customNode->WrapMode = 1;
         customNode->Flags = 0;

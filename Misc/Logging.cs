@@ -12,7 +12,7 @@ public static unsafe class Logging
     
     public static void PrintAddress(nint address, string label)
     {
-        PluginLog.Debug($"{GetAddressString(address)} - {label}");
+        Service.PluginLog.Debug($"{GetAddressString(address)} - {label}");
     }
 
     private static string GetAddressString(nint address)

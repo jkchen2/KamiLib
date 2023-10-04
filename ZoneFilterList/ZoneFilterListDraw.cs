@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Interface;
+using Dalamud.Interface.Utility;
 using Dalamud.Logging;
 using Dalamud.Utility;
 using ImGuiNET;
@@ -24,7 +25,7 @@ public static class ZoneFilterListDraw
 
     public static void DrawFilterTypeRadio(Setting<ZoneFilterTypeId> currentType)
     {
-        PluginLog.LogDebug(currentType.Value.ToString());
+        Service.PluginLog.Debug(currentType.Value.ToString());
         InfoBox.Instance
                .AddTitle(Strings.ZoneFilterList_Type_Section, percentFill: 1.0f)
                .AddConfigRadio(Strings.ZoneFilterList_Type_AllowLabel, currentType, ZoneFilterType.WhiteList.Id, Strings.ZoneFilterList_Type_AllowTooltip)
@@ -86,7 +87,7 @@ public static class ZoneFilterListDraw
                 if (ImGui.InputTextWithHint("###TerritorySearch", Strings.ZoneFilterList_Search, ref _searchString, 60, ImGuiInputTextFlags.AutoSelectAll))
                 {
                     _searchResults = Search(_searchString, 5);
-                    PluginLog.Debug("Updating TerritorySearch Results");
+                    Service.PluginLog.Debug("Updating TerritorySearch Results");
                 }
             })
             .AddAction(() => DisplayResults(_searchResults))
