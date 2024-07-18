@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using Dalamud.Logging;
 using FFXIVClientStructs.FFXIV.Component.GUI;
@@ -32,12 +32,6 @@ public static class AtkValueHelper
                 break;
             case ValueType.Vector:
                 Service.PluginLog.Debug($"[{index:D3}] [{"vector", 7}]: No Representation Implemented");
-                break;
-            case ValueType.AllocatedString:
-                Service.PluginLog.Debug($"[{index:D3}] [{"aString", 7}]: {Marshal.PtrToStringUTF8(new nint(value.String))}");
-                break;
-            case ValueType.AllocatedVector:
-                Service.PluginLog.Debug($"[{index:D3}] [{"aVector", 7}]: No Representation Implemented");
                 break;
             default:                        
                 Service.PluginLog.Debug($"[{index:D3}] [{"unknown", 7}]: [{value.Type}]: {BitConverter.ToString(BitConverter.GetBytes((long)value.String)).Replace("-", " ")}");

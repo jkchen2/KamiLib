@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using FFXIVClientStructs.FFXIV.Client.System.Memory;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 
@@ -12,7 +12,7 @@ public static unsafe class ImageNode
     {
         var customNode = UISpace->Create<AtkImageNode>();
         customNode->AtkResNode.Type = NodeType.Image;
-        customNode->AtkResNode.NodeID = nodeId;
+        customNode->AtkResNode.NodeId = nodeId;
         customNode->AtkResNode.NodeFlags = NodeFlags.AnchorLeft |
                                            NodeFlags.AnchorTop |
                                            NodeFlags.Visible |

@@ -1,4 +1,4 @@
-﻿using Dalamud.IoC;
+using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using DalamudCommandManager = Dalamud.Plugin.Services.ICommandManager;
@@ -8,7 +8,7 @@ namespace KamiLib;
 
 internal class Service
 {
-    [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+    [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] public static IPluginLog PluginLog { get; private set; } = null!;
     [PluginService] public static DalamudCommandManager Commands { get; private set; } = null!;
     [PluginService] public static IClientState ClientState { get; private set; } = null!;

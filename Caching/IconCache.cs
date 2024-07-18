@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dalamud.Interface.Internal;
+using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Logging;
 using Dalamud.Utility;
 using ImGuiScene;
@@ -39,7 +40,9 @@ public class IconCache : IDisposable
             try
             {
                 var path = IconFilePath.Format(iconId / 1000, iconId);
-                var tex = Service.TextureProvider.GetTextureFromGame(path);
+                //var tex = Service.TextureProvider.GetTextureFromGame(path);
+                var imtex = Service.TextureProvider.GetFromGame(path);
+                var tex = imtex.GetWrapOrDefault();
 
                 if (tex is not null && tex.ImGuiHandle != nint.Zero) 
                 {

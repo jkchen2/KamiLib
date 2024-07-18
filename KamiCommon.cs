@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Dalamud.Plugin;
 using KamiLib.ZoneFilterList;
 using KamiLib.Caching;
@@ -18,7 +18,7 @@ public static class KamiCommon
     
     private static Action _saveConfigFunction = null!;
 
-    public static void Initialize(DalamudPluginInterface pluginInterface, string pluginName, Action saveConfig)
+    public static void Initialize(IDalamudPluginInterface pluginInterface, string pluginName, Action saveConfig)
     {
         pluginInterface.Create<Service>();
 

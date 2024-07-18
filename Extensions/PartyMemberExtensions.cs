@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Game.ClientState.Party;
 
@@ -6,12 +6,12 @@ namespace KamiLib.Extensions;
 
 public static class PartyMemberExtensions
 {
-    public static bool HasStatus(this PartyMember character, uint statusId)
+    public static bool HasStatus(this IPartyMember character, uint statusId)
     {
         return character.Statuses.Any(status => status.StatusId == statusId);
     }
 
-    public static bool HasStatus(this PartyMember character, List<uint> statusList)
+    public static bool HasStatus(this IPartyMember character, List<uint> statusList)
     {
         return character.Statuses.Any(status => statusList.Contains(status.StatusId));
     }

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using KamiLib.ChatCommands;
 
@@ -96,7 +96,7 @@ public static unsafe class Node
         foreach (var index in Enumerable.Range(0, uldManager.NodeListCount))
         {
             var currentNode = uldManager.NodeList[index];
-            if (currentNode->NodeID != nodeId) continue;
+            if (currentNode->NodeId != nodeId) continue;
 
             return (T*) currentNode;
         }

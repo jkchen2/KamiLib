@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Game.ClientState.Aetherytes;
@@ -98,7 +98,7 @@ public class TeleportManager : IDisposable
         return ChatLinkPayloads.First(payload => Equals(payload.Location, targetLocation)).Payload;
     }
 
-    private void Teleport(AetheryteEntry aetheryte)
+    private void Teleport(IAetheryteEntry aetheryte)
     {
         try
         {
@@ -127,7 +127,7 @@ public class TeleportManager : IDisposable
         Service.Toast.ShowError(error);
     }
 
-    private string GetAetheryteName(AetheryteEntry aetheryte)
+    private string GetAetheryteName(IAetheryteEntry aetheryte)
     {
         var gameData = aetheryte.AetheryteData.GameData;
         var placeName = gameData?.PlaceName.Value;
@@ -135,7 +135,7 @@ public class TeleportManager : IDisposable
         return placeName == null ? "[Name Lookup Failed]" : placeName.Name;
     }
 
-    private bool AetheryteUnlocked(ExcelRow aetheryte, out AetheryteEntry? entry)
+    private bool AetheryteUnlocked(ExcelRow aetheryte, out IAetheryteEntry? entry)
     {
         if (Service.AetheryteList.Any(entry => entry.AetheryteId == aetheryte.RowId))
         {

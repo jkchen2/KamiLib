@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Game.ClientState.Party;
 
@@ -6,32 +6,32 @@ namespace KamiLib.Extensions;
 
 public static class PartyListExtensions
 {
-    public static IEnumerable<PartyMember> Alive(this IEnumerable<PartyMember> list)
+    public static IEnumerable<IPartyMember> Alive(this IEnumerable<IPartyMember> list)
     {
         return list.Where(member => member.GameObject != null && !member.GameObject.IsDead);
     }
 
-    public static IEnumerable<PartyMember> WithRole(this IEnumerable<PartyMember> list, uint roleID)
+    public static IEnumerable<IPartyMember> WithRole(this IEnumerable<IPartyMember> list, uint roleID)
     {
         return list.Where(member => member.ClassJob.GameData?.Role == roleID);
     }
 
-    public static IEnumerable<PartyMember> WithJob(this IEnumerable<PartyMember> list, uint jobID)
+    public static IEnumerable<IPartyMember> WithJob(this IEnumerable<IPartyMember> list, uint jobID)
     {
         return list.Where(member => member.ClassJob.Id == jobID);
     }
 
-    public static IEnumerable<PartyMember> WithJob(this IEnumerable<PartyMember> list, List<uint> jobList)
+    public static IEnumerable<IPartyMember> WithJob(this IEnumerable<IPartyMember> list, List<uint> jobList)
     {
         return list.Where(member => jobList.Contains(member.ClassJob.Id));
     }
 
-    public static IEnumerable<PartyMember> WithStatus(this IEnumerable<PartyMember> list, uint statusID)
+    public static IEnumerable<IPartyMember> WithStatus(this IEnumerable<IPartyMember> list, uint statusID)
     {
         return list.Where(member => member.HasStatus(statusID));
     }
 
-    public static IEnumerable<PartyMember> WithStatus(this IEnumerable<PartyMember> list, List<uint> statusList)
+    public static IEnumerable<IPartyMember> WithStatus(this IEnumerable<IPartyMember> list, List<uint> statusList)
     {
         return list.Where(member => member.HasStatus(statusList));
     }
