@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Linq;
 using KamiLib.Caching;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace KamiLib.Misc;
 
@@ -81,6 +81,7 @@ public static class Time
         }
     }
 
+    /*
     public static DateTime NextJumboCactpotReset()
     {
         var region = LookupDatacenterRegion(Service.ClientState.LocalPlayer?.HomeWorld.GameData?.DataCenter.Row);
@@ -103,6 +104,7 @@ public static class Time
             _ => DateTime.MinValue
         };
     }
+    */
 
     private static byte LookupDatacenterRegion(uint? playerDatacenterID)
     {

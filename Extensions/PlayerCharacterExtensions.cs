@@ -20,7 +20,7 @@ public static class PlayerCharacterExtensions
 
     public static bool HasOnlineStatus(this IPlayerCharacter character, uint statusId)
     {
-        return character.OnlineStatus.Id == statusId;
+        return character.OnlineStatus.RowId == statusId;
     }
 
     public static int StatusCount(this IPlayerCharacter character, List<uint> statusList)
@@ -47,12 +47,12 @@ public static class PlayerCharacterExtensions
 
     public static IEnumerable<IPlayerCharacter> WithJob(this IEnumerable<IPlayerCharacter> list, uint jobID)
     {
-        return list.Where(member => member.ClassJob.Id == jobID);
+        return list.Where(member => member.ClassJob.Value.JobIndex == jobID);
     }
 
     public static IEnumerable<IPlayerCharacter> WithJob(this IEnumerable<IPlayerCharacter> list, List<uint> jobList)
     {
-        return list.Where(member => jobList.Contains(member.ClassJob.Id));
+        return list.Where(member => jobList.Contains(member.ClassJob.Value.JobIndex));
     }
 
     public static IEnumerable<IPlayerCharacter> WithStatus(this IEnumerable<IPlayerCharacter> list, uint statusID)

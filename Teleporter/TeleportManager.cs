@@ -11,7 +11,7 @@ using KamiLib.Caching;
 using KamiLib.ChatCommands;
 using KamiLib.Localization;
 using Lumina.Excel;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace KamiLib.Teleporter;
 
@@ -21,6 +21,7 @@ public class TeleportInfo
     public Enum Target { get; }
     public Aetheryte Aetherite { get; }
     
+    /*
     public TeleportInfo(uint commandID, Enum target, uint aetheriteID)
     {
         CommandID = commandID;
@@ -29,6 +30,7 @@ public class TeleportInfo
     }
     
     private static Aetheryte GetAetheryte(uint id) => LuminaCache<Aetheryte>.Instance.GetRow(id)!;
+    */
 }
 
 public record TeleportLinkPayloads(Enum Location, DalamudLinkPayload Payload);
@@ -81,7 +83,7 @@ public class TeleportManager : IDisposable
     private void TeleportAction(uint command, SeString message)
     {
         var teleportInfo = teleportInfoList.First(teleport => teleport.CommandID == command);
-
+        /*
         if (AetheryteUnlocked(teleportInfo.Aetherite, out var targetAetheriteEntry))
         {
             Teleport(targetAetheriteEntry!);
@@ -91,6 +93,7 @@ public class TeleportManager : IDisposable
             Service.PluginLog.Error("User attempted to teleport to an aetheryte that is not unlocked");
             UserError(Strings.Teleport_NotUnlocked);
         }
+        */
     }
 
     public DalamudLinkPayload GetPayload(Enum targetLocation)
@@ -111,7 +114,7 @@ public class TeleportManager : IDisposable
             }
             else if (showMessage)
             {
-                Chat.Print(Strings.Teleport_Label, string.Format(Strings.Teleport_TeleportingTo, GetAetheryteName(aetheryte)));
+                //Chat.Print(Strings.Teleport_Label, string.Format(Strings.Teleport_TeleportingTo, GetAetheryteName(aetheryte)));
             }
         }
         catch (IpcNotReadyError)
@@ -127,6 +130,7 @@ public class TeleportManager : IDisposable
         Service.Toast.ShowError(error);
     }
 
+    /*
     private string GetAetheryteName(IAetheryteEntry aetheryte)
     {
         var gameData = aetheryte.AetheryteData.GameData;
@@ -134,7 +138,9 @@ public class TeleportManager : IDisposable
 
         return placeName == null ? "[Name Lookup Failed]" : placeName.Name;
     }
+    */
 
+    /*
     private bool AetheryteUnlocked(ExcelRow aetheryte, out IAetheryteEntry? entry)
     {
         if (Service.AetheryteList.Any(entry => entry.AetheryteId == aetheryte.RowId))
@@ -148,4 +154,5 @@ public class TeleportManager : IDisposable
             return false;
         }
     }
+    */
 }

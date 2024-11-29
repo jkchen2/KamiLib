@@ -7,7 +7,7 @@ using Lumina.Excel;
 
 namespace KamiLib.Caching;
 
-public class LuminaCache<T> : IEnumerable<T> where T : ExcelRow
+public class LuminaCache<T> : IEnumerable<T> where T : struct, IExcelRow<T>
 {
     private readonly Func<uint, T?> searchAction;
 
@@ -51,9 +51,7 @@ public class LuminaCache<T> : IEnumerable<T> where T : ExcelRow
         }
         else
         {
-            if (Service.DataManager.GetExcelSheet<T>()!.GetRow(row, subRow) is not { } result) return null;
-            
-            return subRowCache[targetRow] = result;
+            return Service.DataManager.GetExcelSheet<T>()!.GetRow(row);
         }
     }
     

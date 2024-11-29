@@ -1,7 +1,7 @@
-﻿using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Game.ClientState.Conditions;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using KamiLib.Caching;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace KamiLib.GameState;
 
@@ -45,9 +45,9 @@ public static class Condition
     {
         var territoryInfo = LuminaCache<TerritoryType>.Instance.GetRow(Service.ClientState.TerritoryType);
         if (territoryInfo is null) return false;
-        
+
         // Island Sanctuary
-        return territoryInfo.TerritoryIntendedUse == 49;
+        return territoryInfo.Value.TerritoryIntendedUse.RowId == 40;
     }
     
     public static bool IsCrafting()
@@ -61,10 +61,12 @@ public static class Condition
         return Service.Condition[ConditionFlag.ParticipatingInCrossWorldPartyOrAlliance];
     }
 
+    /*
     public static bool IsInSanctuary()
     {
         return GameMain.IsInSanctuary();
     }
+    */
 
     public static bool CheckFlag(ConditionFlag flag)
     {

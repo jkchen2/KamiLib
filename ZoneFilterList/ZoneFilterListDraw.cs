@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -12,7 +12,7 @@ using KamiLib.Configuration;
 using KamiLib.Drawing;
 using KamiLib.Extensions;
 using KamiLib.Localization;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace KamiLib.ZoneFilterList;
 
@@ -109,8 +109,7 @@ public static class ZoneFilterListDraw
     private static List<SearchResult> Search(string searchTerms, int numResults)
     {
         return Service.DataManager.GetExcelSheet<TerritoryType>()!
-            .Where(territory => territory.PlaceName.Row is not 0)
-            .Where(territory => territory.PlaceName.Value is not null)
+            .Where(territory => territory.PlaceName.RowId is not 0)
             .GroupBy(territory => territory.PlaceName.Value!.Name.ToDalamudString().TextValue)
             .Select(territory => territory.First())
             .Where(territory => territory.PlaceName.Value!.Name.ToDalamudString().TextValue.ToLower().Contains(searchTerms.ToLower()))

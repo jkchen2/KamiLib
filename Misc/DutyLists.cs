@@ -3,7 +3,7 @@ using System.Linq;
 using Dalamud;
 using Dalamud.Game;
 using KamiLib.Caching;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace KamiLib.Misc;
 
@@ -28,6 +28,7 @@ public class DutyLists
     public List<uint> LimitedSavage { get; }
     
     private static DutyLists? _instance;
+    /*
     public static DutyLists Instance => _instance ??= new DutyLists();
 
     private DutyLists()
@@ -80,6 +81,7 @@ public class DutyLists
             .Select(cfc => cfc.TerritoryType.Row)
             .ToList();
     }
+    */
 
     private DutyType GetDutyType(uint dutyId)
     {
