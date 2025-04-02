@@ -3,6 +3,7 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 
 namespace KamiLib.Hooking;
 
+/*
 public static class Delegates
 {
     public static unsafe class Addon
@@ -25,3 +26,4 @@ public static class Delegates
         public delegate void* GoldSaucerUpdate(void* a1, byte* a2, uint a3, ushort a4, void* a5, int* data, byte eventID);
     }
 }
+*/
