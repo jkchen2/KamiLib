@@ -6,7 +6,7 @@ using Dalamud.Interface;
 using Dalamud.Interface.Utility;
 using Dalamud.Logging;
 using Dalamud.Utility;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using KamiLib.Caching;
 using KamiLib.Configuration;
 using KamiLib.Drawing;

@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using KamiLib.Drawing;
 
 namespace KamiLib.Misc;

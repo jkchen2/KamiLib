@@ -62,7 +62,7 @@ public class TeleportManager : IDisposable
     {
         foreach (var payload in teleportInfoList)
         {
-            Service.PluginInterface.RemoveChatLinkHandler(payload.CommandID);
+            Service.Chat.RemoveChatLinkHandler(payload.CommandID);
         }
     }
 
@@ -72,9 +72,9 @@ public class TeleportManager : IDisposable
         
         foreach (var teleport in teleportInfoList)
         {
-            Service.PluginInterface.RemoveChatLinkHandler(teleport.CommandID);
+            Service.Chat.RemoveChatLinkHandler(teleport.CommandID);
 
-            var linkPayload = Service.PluginInterface.AddChatLinkHandler(teleport.CommandID, TeleportAction);
+            var linkPayload = Service.Chat.AddChatLinkHandler(teleport.CommandID, TeleportAction);
 
             ChatLinkPayloads.Add(new TeleportLinkPayloads(teleport.Target, linkPayload));
         }

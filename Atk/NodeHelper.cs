@@ -10,10 +10,12 @@ public unsafe class BaseNode
 
     public bool NodeValid => node != null;
     
+    /*
     public BaseNode(string addon)
     {
         node = (AtkUnitBase*) Service.GameGui.GetAddonByName(addon);
     }
+    */
 
     public BaseNode Print()
     {

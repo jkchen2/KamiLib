@@ -44,7 +44,7 @@ public class IconCache : IDisposable
                 var imtex = Service.TextureProvider.GetFromGame(path);
                 var tex = imtex.GetWrapOrDefault();
 
-                if (tex is not null && tex.ImGuiHandle != nint.Zero) 
+                if (tex is not null && tex.Handle != nint.Zero) 
                 {
                     iconTextures[iconId] = tex;
                 } 

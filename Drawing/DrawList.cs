@@ -4,7 +4,7 @@ using System.Numerics;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using KamiLib.Caching;
 using KamiLib.Configuration;
 using Action = System.Action;
@@ -46,7 +46,7 @@ public abstract class DrawList<T> where T: DrawList<T>
         {
             DrawActions.Add(() =>
             {
-                ImGui.Image(icon.ImGuiHandle, size, Vector2.Zero, Vector2.One, color);
+                ImGui.Image(icon.Handle, size, Vector2.Zero, Vector2.One, color);
             });
         }
 
@@ -61,7 +61,7 @@ public abstract class DrawList<T> where T: DrawList<T>
         {
             DrawActions.Add(() =>
             {
-                ImGui.Image(icon.ImGuiHandle, size, Vector2.Zero, Vector2.One, Vector4.One with {W = transparency});
+                ImGui.Image(icon.Handle, size, Vector2.Zero, Vector2.One, Vector4.One with {W = transparency});
             });
         }
 
@@ -358,7 +358,7 @@ public abstract class DrawList<T> where T: DrawList<T>
         return DrawListOwner;
     }
 
-    public T AddInputString(string label, Setting<string> setting, uint maxLength, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+    public T AddInputString(string label, Setting<string> setting, int maxLength, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
     {
         DrawActions.Add(() =>
         {

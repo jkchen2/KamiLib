@@ -24,7 +24,7 @@ public class ChatPayloadManager : IDisposable
     {
         foreach (var payload in ChatLinkPayloads)
         {
-            Service.PluginInterface.RemoveChatLinkHandler( payload.Type + 1000 );
+            Service.Chat.RemoveChatLinkHandler( payload.Type + 1000 );
         }
     }
 
@@ -37,8 +37,8 @@ public class ChatPayloadManager : IDisposable
         if (payload != null) return payload;
 
         // else
-        Service.PluginInterface.RemoveChatLinkHandler(type + 1000);
-        payload = Service.PluginInterface.AddChatLinkHandler(type + 1000, payloadAction);
+        Service.Chat.RemoveChatLinkHandler(type + 1000);
+        payload = Service.Chat.AddChatLinkHandler(type + 1000, payloadAction);
 
         ChatLinkPayloads.Add(new ChatLinkPayload(type + 1000, type, payload));
 

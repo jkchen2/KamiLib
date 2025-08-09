@@ -53,7 +53,7 @@ public static class Condition
     public static bool IsCrafting()
     {
         return Service.Condition[ConditionFlag.Crafting] ||
-               Service.Condition[ConditionFlag.Crafting40];
+               Service.Condition[ConditionFlag.ExecutingCraftingAction];
     }
 
     public static bool IsCrossWorld()
@@ -76,7 +76,7 @@ public static class Condition
     public static bool IsGathering()
     {
         return Service.Condition[ConditionFlag.Gathering] ||
-               Service.Condition[ConditionFlag.Gathering42];
+               Service.Condition[ConditionFlag.ExecutingGatheringAction];
     }
 
     public static bool IsInBardPerformance()
