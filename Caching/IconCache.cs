@@ -5,7 +5,6 @@ using Dalamud.Interface.Internal;
 using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Logging;
 using Dalamud.Utility;
-using ImGuiScene;
 
 namespace KamiLib.Caching;
 
