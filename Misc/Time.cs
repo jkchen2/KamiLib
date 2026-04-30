@@ -106,6 +106,7 @@ public static class Time
     }
     */
 
+    /*
     private static byte LookupDatacenterRegion(uint? playerDatacenterID)
     {
         if (playerDatacenterID == null) return 0;
@@ -115,4 +116,5 @@ public static class Time
             .Select(dc => dc.Region)
             .FirstOrDefault();
     }
+    */
 }
